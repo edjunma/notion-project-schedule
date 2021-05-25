@@ -24,6 +24,11 @@ const getProjects = async () => {
       title: page.properties.Name.title[0].text.content
     }
   })
+
+  return projects
 }
 
-getProjects();
+;(async () => {
+  const nProjects = await getProjects()
+  console.log(nProjects)
+})()

@@ -5,3 +5,18 @@ const {Client} = require('@notionhq/client');
 const notion = new Client({
   auth: process.env.NOTION_TOKEN
 })
+
+const database_id = process.env.NOTION_DATABASE_ID;
+
+const getProjects = async () => {
+  const payload = {
+    path: `databases/${database_id}/query`,
+    method: 'POST',
+  }
+
+  const { results } = await notion.request()
+
+  console.log(results);
+}
+
+getProjects();
